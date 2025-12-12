@@ -11,3 +11,7 @@
 
 - OpenAI Glasses for Navigation AI智能眼镜系统，通过视频音频传感器数据为视障人士提供实时导航辅助*_12.11*
   - note: [lvynote/note/AI_apps/AI_glasses at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/AI_apps/AI_glasses)
+
+- Drogon: C++14/17的高性能HTTP应用框架，支持WebSocket/异步非阻塞IO/ORM/微服务_12.12  
+  - note: [lvynote/note/C++/Drogon_net at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/C%2B%2B/Drogon_net)
+  - code
