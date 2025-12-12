@@ -10,4 +10,4 @@
   - note：[lvynote/note/机器学习/RouteLLM at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/机器学习/RouteLLM)
 
 - OpenAI Glasses for Navigation AI智能眼镜系统，通过视频音频传感器数据为视障人士提供实时导航辅助*_12.11*
-  - note: 
+  - note: [lvynote/note/AI_apps/AI_glasses at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/AI_apps/AI_glasses)
