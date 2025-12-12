@@ -14,4 +14,11 @@
 
 - Drogon: C++14/17的高性能HTTP应用框架，支持WebSocket/异步非阻塞IO/ORM/微服务_12.12  
   - note: [lvynote/note/C++/Drogon_net at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/C%2B%2B/Drogon_net)
-  - code
+  - code:
+  - **Drogon 核心特性：**
+    - 🚀 高性能：基于非阻塞IO和epoll/kqueue
+    - 🔌 支持HTTP/1.1、WebSocket协议
+    - 💾 内置ORM，支持PostgreSQL/MySQL/SQLite
+    - 🎯 RESTful API友好
+    - ⚡ 支持协程（C++20）
+    - 🔧 跨平台（Linux/macOS/Windows）
