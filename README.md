@@ -5,13 +5,10 @@
 - Slamtec RPLIDAR SDK 为激光雷达产品创建机器人导航和三维扫描等应用_12.9
     - note:https://github.com/lvy010/lvynote/tree/main/note/Robot/rplidar_sdk
     - code:https://github.com/lvy010/Cpp-Lib-test/tree/main/rplidar_demo
-
 - RouteLLM 智能路由在不同LLM之间选择，在保持响应质量的同时降低成本_12.10
   - note：[lvynote/note/机器学习/RouteLLM at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/机器学习/RouteLLM)
-
 - OpenAI Glasses for Navigation AI智能眼镜系统，通过视频音频传感器数据为视障人士提供实时导航辅助*_12.11*
   - note: [lvynote/note/AI_apps/AI_glasses at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/AI_apps/AI_glasses)
-
 - Drogon: C++14/17的高性能HTTP应用框架，支持WebSocket/异步非阻塞IO/ORM/微服务_12.12  
   - note: [lvynote/note/C++/Drogon_net at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/C%2B%2B/Drogon_net)
   - code:
@@ -22,3 +19,13 @@
     - 🎯 RESTful API友好
     - ⚡ 支持协程（C++20）
     - 🔧 跨平台（Linux/macOS/Windows）
+
+- OpenTitan: 开源安全芯片项目，提供透明可审计的硬件信任根(Root of Trust)实现，包含加密加速器、密钥管理、安全启动等模块，采用SystemVerilog开发，为嵌入式系统和数据中心提供可信的硬件安全基础_12.13
+  - note: [lvynote/note/C Advanced/OpenTitan at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/C%20Advanced/OpenTitan)
+  - **OpenTitan 核心特性：**
+    - 🔐 硬件信任根：提供安全启动和固件验证
+    - 🔑 密码学引擎：AES/HMAC/KMAC等加密加速器
+    - 🛡️ 安全隔离：独立的安全处理器和内存保护
+    - 📖 完全开源：硬件设计、固件、工具链全部开放
+    - ✅ 工业级质量：符合安全认证标准(Common Criteria)
+    - 🌐 社区驱动：lowRISC主导，Google/多家企业参与
