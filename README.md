@@ -2,6 +2,22 @@
 
 (目录归档开始于12.9，有时间按如下规范组织之前8-12月[note](./note)中笔记in progress...）
 
+
+
+- Box64:  Linux用户态x86_64模拟器，在ARM64/RISC-V等非x86架构上运行x86_64 Linux程序，支持动态库翻译、JIT编译和系统调用转换，为==跨架构软件兼容提供高性能解决方案==_12.15
+  - note: [lvynote/note/C Advanced/box64 at main · lvy010/lvynote](https://github.com/lvy010/lvynote/tree/main/note/C%20Advanced/box64)
+  - **Box64 核心特性：**
+    - 🔄 指令翻译：x86_64指令实时转换为目标架构指令
+    - ⚡ JIT编译：动态编译优化，提升执行性能
+    - 📚 库包装：自动处理x86_64动态库的加载和调用
+    - 🎮 游戏支持：兼容Steam、Wine等游戏平台
+    - 🖥️ 系统调用：完整的Linux系统调用转换层
+    - 🏗️ 多架构：支持ARM64、RISC-V、LoongArch等目标平台
+    - 🔧 调试友好：提供详细的执行日志和性能分析工具
+    - 🆓 开源免费：MIT许可证，社区驱动开发
+
+----------
+
 - Slamtec RPLIDAR SDK 为激光雷达产品创建机器人导航和三维扫描等应用_12.9
     - note:https://github.com/lvy010/lvynote/tree/main/note/Robot/rplidar_sdk
     - code:https://github.com/lvy010/Cpp-Lib-test/tree/main/rplidar_demo
