@@ -1,5 +1,3 @@
-# TileLang vs Triton: 选择正确的GPU编程语言
-
 在众多GPU编程语言中如何做出选择，当前GPU编程生态系统中的一个重要趋势——==越来越多的高级抽象语言==正在挑战传统的CUDA编程模式。
 
 ## 背景：两个相似却不同的选择
@@ -10,11 +8,24 @@ TileLang和Triton都是基于现代编译器技术的GPU编程语言，旨在简
 
 - TileLang作为一个相对较新的项目，基于Apache TVM构建，提供了独特的价值主张。[tile-ai/tilelang: Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels](https://github.com/tile-ai/tilelang)
 
-## 核心技术
+TileLang传送：
+
+- [\[tile-lang\] 自动调优器 | 遍历-编译-测试 | 记忆最优解 | `@autotune`装饰器](https://lvynote.blog.csdn.net/article/details/153343755)
+- [\[tile-lang\] JITKernel内部 | Pass流水线链式转换TIR\(中间表示\)](https://lvynote.blog.csdn.net/article/details/153342984)
+- [\[tile-lang\] JITKernel | 编译程序的智能封装](https://lvynote.blog.csdn.net/article/details/153342438)
+- [\[tile-lang\] 布局与分块管理 | Layout | Fragment](https://lvynote.blog.csdn.net/article/details/153341911)
+- [\[tile-lang\] 张量核心 | 传统MMA-＞WGMMA | 底层自动选择优化](https://lvynote.blog.csdn.net/article/details/153337754)
+- [\[tile-lang\] 语言接口 | `T.prim_func` & `@tilelang.jit` | 底层原理](https://lvynote.blog.csdn.net/article/details/153336915)
+- [\[tile-lang\] docs | 基准测试 | GEMM示例](https://lvynote.blog.csdn.net/article/details/153323843)
+
+Triton部分&MLIR架构 看了一下 但还没整理 之后有时间或许会整理吧🕳+1
+
+## 核心
 
 ### 1. 架构基础的不同选择
 
 **TileLang的TVM基础**：
+
 ```python
 # TileLang基于TVM，提供成熟的编译器基础设施
 @T.prim_func
@@ -25,6 +36,7 @@ def gemm_kernel(A: T.Buffer, B: T.Buffer, C: T.Buffer):
 ```
 
 **Triton的MLIR基础**：
+
 ```python
 # Triton直接基于MLIR构建
 @triton.jit
@@ -35,15 +47,17 @@ def gemm_kernel(a_ptr, b_ptr, c_ptr, M, N, K, stride_am, stride_ak, ...):
 
 这种架构差异带来了根本性的不同：TileLang继承了TVM生态系统的所有优势，包括成熟的优化pass和多后端支持
 
-![image-20251217160830997](image-20251217160830997.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/f941532f8ea441b5bc791673f9af8140.png)
+
 
 而Triton则享受MLIR的灵活性和现代编译器设计。
 
-![image-20251217160857137](image-20251217160857137.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/d16fd55d6c6e4a89811508f866e14eb4.png)
+
 
 ### 2. 编程抽象层次的差异
 
-TileLang的独特优势在于**多层次抽象**：
+==TileLang主要专注于**多层次抽象**==：
 
 ```python
 # 高级操作抽象
@@ -57,7 +71,7 @@ with T.Kernel(T.ceildiv(M, 128), T.ceildiv(N, 128)) as (bx, by):
         T.copy(A_global[...], A_shared[...])
 ```
 
-而Triton主要专注于**块级抽象**：
+==Triton主要专注于**块级抽象**==：
 
 ```python
 @triton.jit
@@ -108,12 +122,12 @@ TileLang实现了三阶段布局推理算法：
 
 这种自动化程度是Triton目前无法匹配的。
 
-## 何时选择TileLang？
+## 应用场景
 
 ### 选择TileLang的场景：
 
 1. **需要==跨平台==支持**
-   
+
    ```python
    # 一份代码，支持NVIDIA、AMD、Apple、华为
    if target == "cuda":
@@ -121,17 +135,18 @@ TileLang实现了三阶段布局推理算法：
    elif target == "metal":
        # 自动生成Metal代码
    ```
-   
+
 2. **需要==线程级精细控制==**
-   
+
    ```python
    # TileLang允许线程级优化
    with T.thread_binding(0, 32) as tx:
        # 精确控制每个线程的行为
        local_data = T.alloc_local([16], dtype="float16")
    ```
-   
+
 3. **稀疏计算需求**
+
    ```python
    # 原生支持2:4稀疏张量核心
    T.gemm_sp(A_sparse, B_dense, C, sparsity_pattern="2:4")
@@ -143,9 +158,10 @@ TileLang实现了三阶段布局推理算法：
 2. **快速原型开发**：Triton的学习曲线相对平缓
 3. **成熟的社区支持**：更大的用户基数和更多的示例
 
-## 开发体验对比
+## 开发体验
 
 ### TileLang的开发体验：
+
 ```python
 # 丰富的调试工具
 @T.prim_func
@@ -158,6 +174,7 @@ kernel = T.compile(debug_kernel, target="cuda")  # 自动缓存
 ```
 
 ### Triton的开发体验：
+
 ```python
 # 相对简单的调试
 @triton.jit
@@ -166,13 +183,13 @@ def simple_kernel(...):
     pass
 ```
 
-## 技术趋势与未来展望
+## 展望
 
 从技术发展趋势来看，TileLang代表了GPU编程语言发展的几个重要方向：
 
 1. **编译器技术的深度应用**：基于TVM的成熟编译器基础设施
 2. **自动化优化**：减少手工调优的需求
-3. **真正的跨平台支持**：不仅仅是理论上的支持
+3. **==真正的跨平台支持==**：不仅仅是理论上的支持
 4. **多层次抽象**：从高级操作到线程级控制的完整覆盖
 
 ## 结论与建议
@@ -180,12 +197,14 @@ def simple_kernel(...):
 TileLang和Triton都是优秀的GPU编程语言，但它们服务于不同的需求：
 
 **选择TileLang**，如果你：
+
 - 需要跨多个GPU厂商的平台支持
 - 要求线程级的精细控制能力
 - 希望利用自动化优化减少手工调优
 - 正在开发稀疏计算或高级注意力机制
 
 **选择Triton**，如果你：
+
 - 主要在PyTorch生态系统中工作
 - 需要快速原型开发和验证
 - 更看重成熟的社区和丰富的示例
