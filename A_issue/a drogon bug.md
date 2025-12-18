@@ -343,3 +343,32 @@ $ abi-compliance-checker -l trantor \
 - [Conan Documentation - Version Ranges](https://docs.conan.io/en/latest/versioning/version_ranges.html)
 - [C++ ABI Compliance Checker](https://lvc.github.io/abi-compliance-checker/)
 
+----
+
+注意到另一个最近的pr fix
+
+ CI 测试矩阵中新增了 g++-9 的测试，但之前没有对应的安装步骤，导致测试失败，所以有了这个修复
+
+![image-20251218113933942](image-20251218113933942.png)
+
+**统一了 CI 工作流中 g++ 编译器的安装逻辑，使 g++-9 和 g++-13 都通过同一个安装步骤处理，避免代码重复并提高可维护性。**
+
+**Before (修改前):**
+```yaml
+- name: Install g++-13
+  if: startsWith(matrix.compiler.cxx, 'g++') && matrix.compiler.ver == 13
+  run: |
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-13 13
+```
+- 只处理 g++-13
+- 硬编码版本号
+
+**After (修改后):**
+```yaml
+- name: Install g++
+  if: startsWith(matrix.compiler.cxx, 'g++') && (matrix.compiler.ver == 13 || matrix.compiler.ver == 9)
+  run: |
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${{ matrix.compiler.ver }} ${{ matrix.compiler.ver }}
+```
+- 同时支持 g++-9 和 g++-13
+- 使用变量替换，更通用
