@@ -9,7 +9,12 @@
 在使用 Conan 包管理器构建 Drogon 1.9.11 时遇到了编译错误：
 
 ```cpp
-error: 'MICRO_SECONDS_PRE_SEC' was not declared in this scope
+/home/gav2xlin/.conan2/p/b/drogo9f0dcc0bb5db8/b/src/lib/src/HttpResponseImpl.cc: In member function ‘std::shared_ptrtrantor::MsgBuffer drogon::HttpResponseImpl::renderToBuffer()’:
+/home/gav2xlin/.conan2/p/b/drogo9f0dcc0bb5db8/b/src/lib/src/HttpResponseImpl.cc:657:54: 
+error: ‘MICRO_SECONDS_PRE_SEC’ was not declared in this scope
+657 | ((now.microSecondsSinceEpoch() / MICRO_SECONDS_PRE_SEC) !=
+| ^~~~~~~~~~~~~~~~~~~~~
+[101/148] Building CXX object CMakeFiles/drogon.dir/lib/src/IntranetIpFilter.cc.o
 ```
 
 问题的根源在于：
