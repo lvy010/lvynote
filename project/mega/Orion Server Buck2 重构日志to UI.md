@@ -1,5 +1,4 @@
-# Orion Server Buck2 重构日志to UI
-
+# Orion Server Buck2 restructures logs into the UI
 ## 架构
 
 - CL -> Task (一次提交对应一个任务记录)  
@@ -9,12 +8,11 @@
 ## 后端更新
 
 - 创建任务时 `builds` 数组可提供可选 `target`：
+  - 提供 `target`：worker 仅构建该目标，日志/状态归属该 Build。
+  - 未提供：自动解析目标列表（兼容旧行为），并记录回退。
 
-- 提供 `target`：worker 仅构建该目标，日志和状态仅归属该 Build。
-- worker 根据变更自动解析目标列表，维持兼容模式。
-
-- 日志 key 结构：`{task_id}/{repo_last_segment}/{build_id}.log`，Build 级别完全隔离。
-- Build 状态推导：运行中 -> `Building`；未结束且不在 active -> `Pending`；结束且 `exit_code==0` -> `Completed`；`exit_code` 为其他值 -> `Failed`；`exit_code` 缺失 -> `Interrupted`；预留 `Canceled`。
+- 日志 key 结构：`{task_id}/{repo_last_segment}/{build_id}.log`，Build 级别完全隔离；`BuildDTO.log_path` 返回该路径，便于前端显示/下载。
+- Build 状态推导：运行中 -> `Building`；未结束且不在 active -> `Pending`；结束且 `exit_code==0` -> `Completed`；`exit_code` 为其他值 -> `Failed`；`exit_code` 缺失 -> `Interrupted`；`Canceled` 预留支持。
 - Task 聚合：
 
 - 优先级：存在 `Failed/Interrupted/Canceled` -> `Failed`; 其次存在 `Building/Pending` -> `Building`; 否则全为成功 -> `Completed`; 无数据 -> `NotFound`。
@@ -43,7 +41,7 @@
 
 - `status`: Task 聚合状态
 - `partial_success`: 是否部分成功
-- `build_list`: `BuildDTO[]`（含 `status`, `target`, `id`, `output_file` 等）
+- `build_list`: `BuildDTO[]`（含 `status`, `target`, `id`, `output_file`, `log_path` 等）
 
 - 实时日志 `GET /task-output/{build_id}` (SSE)
 
@@ -56,7 +54,7 @@
 
 ## WebSocket（Worker）
 
-- 服务器下发 `Task` 消息新增 `target: Option<String>`。
+- 服务器下发 `Task` 消息包含 `target: Option<String>`（后端解析/回退后传入）。
 - Worker 回传 `BuildOutput`、`BuildComplete`、`TaskPhaseUpdate` 不变。
 
 ## 前端
