@@ -1,0 +1,8 @@
+1.重试 build 会生成新的 build_id
+
+![1ad5a8a9d33e20296e961ff75e52144](1ad5a8a9d33e20296e961ff75e52144.png)
+
+2.都是1对多的
+
+![5c6c3a187e3b4204bc3a67370d518ae](5c6c3a187e3b4204bc3a67370d518ae.png)
+
