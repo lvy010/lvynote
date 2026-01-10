@@ -4,6 +4,12 @@
 
 - airi 
 
+- [ing]*behavior-1k-solution*
+
+------------
+
+Dec
+
 - [ing]gin:Go高性能Web框架，整理了核心组件（引擎、路由、中间件、上下文）及数据处理、错误恢复等关键机制
   - 后续 准备和drogon 做一些比对思考
 
