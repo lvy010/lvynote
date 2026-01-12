@@ -8,6 +8,8 @@ link:[metrabs_demo.ipynb - Colab](https://colab.research.google.com/github/isara
 
 MeTRAbs 是一个专注于**3D人体姿态估计**的项目，能够识别并预测图像中多人的*3D关节位置*。
 
+![img](https://github.com/isarandi/metrabs/raw/master/img/demo.gif)
+
 其核心神经网络模型通过处理单个人物裁剪图像，并结合全面的相机模型与3D几何知识，实现对人体关节的空间精确定位。
 
 整个流程由==高效的数据管道、底层张量操作和可适配的骨骼==表示系统支撑，并通过灵活的配置系统统一管理。
