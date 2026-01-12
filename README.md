@@ -2,6 +2,17 @@
 
 (目录归档开始于12.9，有时间按如下规范组织之前8-12月[note](./note)中笔记in progress...）
 
+Jan
+
+- [ing]Estimate absolute 3D human poses from RGB images.
+  - [isarandi/metrabs: Estimate absolute 3D human poses from RGB images.](https://github.com/isarandi/metrabs)
+
+- []Dissecting the M1's GPU for 3D acceleration
+  - [AsahiLinux/gpu: Dissecting the M1's GPU for 3D acceleration](https://github.com/AsahiLinux/gpu)
+
+- []The complete stack for AI Engineers: framework, runtime and control plane.
+  - [agno-agi/agno: The complete stack for AI Engineers: framework, runtime and control plane.](https://github.com/agno-agi/agno)
+
 - airi 
 
 - [ing]*behavior-1k-solution*
