@@ -3,6 +3,8 @@
 (目录归档开始于12.9，有时间按如下规范组织之前8-12月[note](./note)中笔记in progress...）
 
 Jan
+- [√]Dexter 自主金融研究代理
+  - https://github.com/virattt/dexter
 
 - [ing]Estimate absolute 3D human poses from RGB images.
   - [isarandi/metrabs: Estimate absolute 3D human poses from RGB images.](https://github.com/isarandi/metrabs)
