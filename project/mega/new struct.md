@@ -14,7 +14,7 @@ CL (Change List)
  └── Task (构建任务，包含 task_name, template 等元数据)
       └── Builds[] (一个 Task 可以包含多个 Build)
            └── Log File (每个 Build 对应一个日志文件)
-``` [2](#0-1) [3](#0-2) 
+```
 
 ### 2.2 识别的问题
 
@@ -59,16 +59,16 @@ CL (Change List)
 
 **表结构设计：**
 
-| 列名            | 类型                     | 约束        | 说明                                          |
-|-----------------|--------------------------|-------------|-----------------------------------------------|
-| `id`            | UUID                     | PRIMARY KEY | 目标记录唯一标识                              |
-| `task_id`       | UUID                     | NOT NULL, FK| 关联到 tasks 表                               |
-| `target_path`   | VARCHAR                  | NOT NULL    | Buck2 目标路径（如 `//app:server`）           |
-| `state`         | VARCHAR                  | NOT NULL    | 目标状态：`Pending`, `Building`, `Completed`, `Failed`, `Interrupted` |
-| `start_at`      | TIMESTAMPTZ              | NULL        | 目标构建开始时间                              |
-| `end_at`        | TIMESTAMPTZ              | NULL        | 目标构建结束时间                              |
-| `error_summary` | TEXT                     | NULL        | 失败时的错误摘要（从日志提取）                |
-| `created_at`    | TIMESTAMPTZ              | NOT NULL    | 记录创建时间                                  |
+| 列名            | 类型        | 约束         | 说明                                                         |
+| --------------- | ----------- | ------------ | ------------------------------------------------------------ |
+| `id`            | UUID        | PRIMARY KEY  | 目标记录唯一标识                                             |
+| `task_id`       | UUID        | NOT NULL, FK | 关联到 tasks 表                                              |
+| `target_path`   | VARCHAR     | NOT NULL     | Buck2 目标路径（如 `//app:server`）                          |
+| `state`         | VARCHAR     | NOT NULL     | 目标状态：`Pending`, `Building`, `Completed`, `Failed`, `Interrupted` |
+| `start_at`      | TIMESTAMPTZ | NULL         | 目标构建开始时间                                             |
+| `end_at`        | TIMESTAMPTZ | NULL         | 目标构建结束时间                                             |
+| `error_summary` | TEXT        | NULL         | 失败时的错误摘要（从日志提取）                               |
+| `created_at`    | TIMESTAMPTZ | NOT NULL     | 记录创建时间                                                 |
 
 **关系设计：**
 - `targets.task_id` → `tasks.id` (ON DELETE CASCADE)
