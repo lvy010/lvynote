@@ -1,3 +1,7 @@
+原为本地笔记的云端存储
+
+public分享制定-在思考组织形式与整理中
+
 ## Notebook backup(Work In Progress & Pending Integration)
 
 (目录归档开始于12.9，有时间按如下规范组织之前8-12月[note](./note)中笔记in progress...）
