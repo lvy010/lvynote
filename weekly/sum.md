@@ -1,10 +1,13 @@
-# 26.4 周刊总览
+# 26.4 
+
+[文章同步-日更传送](https://xhslink.com/m/A0RmObjbu2e)
+[开源分享群](png/group.jpg)
 
 ---
 
 ## 一、开源项目
 
-| 项目 | 一句话 |
+| 项目 | 概览 |
 |------|--------|
 | GenericAgent | 极简自进化 Agent，3K 行，低 Token |
 | dive-into-LLMs | 上交出品，从原理讲的大模型教程 |
