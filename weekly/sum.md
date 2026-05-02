@@ -1,7 +1,7 @@
 # 26.4 
 
-[文章同步-日更传送](https://xhslink.com/m/A0RmObjbu2e)
-[开源分享群](png/group.jpg)
+- [文章同步-日更传送](https://xhslink.com/m/A0RmObjbu2e)
+- [开源分享群](png/group.jpg)
 
 ---
 
