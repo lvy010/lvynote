@@ -1,10 +1,10 @@
-[个人网站](https://lvyovo-wiki.tech/)
+[个人网站](https://lvyovo-wiki.tech/) 
 
 个人博客：
 - **Notes before Jul 2025**: [lvynote.com](https://blog.csdn.net/2301_80171004?type=blog)
 - **Notes after Jul 2025 (in progress)**: [lvynote.github.io](https://github.com/lvy010/lvynote.github.io)
 
-喜欢看各种设计并快速学习 | 搭建知识系统并沉淀文档 | 自己理解后尝试教会他人
+我喜欢看各种设计并快速学习 | 搭建知识系统并沉淀文档 | 自己理解后尝试教会他人
 
 个人文档：
 * [我的262个github仓库整理](https://github.com/lvy010/X-Plore/blob/main/repo/github_repos_cn.md)
