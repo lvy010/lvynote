@@ -16,9 +16,9 @@
 * [2025计算机学习分享](https://lvyovo-wiki.tech/blog/25sum)
 * [2024 C++自学分享（C 语言、数据结构、算法、C++、Linux、Mysql、Redis 文档学习、Docker 云原生、Git、Qt）](https://lvynote.blog.csdn.net/article/details/145308270)
 
-like
+兴趣：
 - 解决问题和看各种设计 
-- 快速学习并沉淀系统文档
+- 快速学习和系统文档
 - 自己理解后分享
 
 工具：
