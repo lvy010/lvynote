@@ -7,6 +7,7 @@
 有计算机相关的好的各个方向的资料都可以提交 PR 到：./resources
 
 文档：
+* [自学计算机的两年](https://github.com/lvy010/lvynote/blob/main/essay/260616.md)
 * [我的262个github仓库整理](https://github.com/lvy010/X-Plore/blob/main/repo/github_repos_cn.md)
 * [140w+浏览的个人技术专栏](https://lvyovo-wiki.tech/share)
 * [我的项目整合](https://lvyovo-wiki.tech/projects)
