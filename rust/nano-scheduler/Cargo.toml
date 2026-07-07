@@ -1,0 +1,9 @@
+[package]
+name = "nano-scheduler"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the nano-vllm request scheduler (see note/机器学习/nano-vllm/3.md)"
+
+[[bin]]
+name = "nano-scheduler"
+path = "src/main.rs"
